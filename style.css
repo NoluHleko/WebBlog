@@ -1,0 +1,36 @@
+:root {
+  --clr-primary: #db887b;
+  --clr-primary-dark:#c5685a;
+  --clr-grey-900:#111827;
+  --clr-grey-500:#6b7280;
+  --clr-grey-400:#9ca3af;
+  --clr-grey-200:#e5e7eb;
+  --box-shadow-md: 0 0.5rem 1rem rgba(0,0,0,0.15);
+  --ps-xs:0.25rem;
+  --sp-sm: 0.5rem;
+  --sp-md:1rem;
+  --sp-lg: 1.5rem;
+  --sp-xl: 2rem;
+  --sp-2x1:3rem;
+  --sp-3x1:4rem;
+  --nav-bar-height:55px;
+  --border-radius:5px;
+  --fs-xxl: 4rem;
+  --fs-xl: 2rem;
+  --fs-lg: 1.5rem;
+  --fs-md: 1.125rem;
+  --fs-sm: 1rem;
+  --fs-xm: 0.875rem;
+  --fw-reg: 400;
+  --fw-md: 500;
+  --fw-bold: 700;
+}
+/*# sourceMappingURL=style.css.map */
+
+h1,h2,h3,h4,h5,h6{
+  font-family: 'montserrat' sans-serif;
+}
+
+p{
+  font-family: 'open sans' sans-serif;
+}
