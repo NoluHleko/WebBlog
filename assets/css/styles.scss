@@ -55,6 +55,13 @@ html {
 
 ul {
   list-style-type: none;
+
+  &.nav__list{
+    text-align: center;
+  }
+  a{
+    text-align: center;
+  }
 }
 
 h1,
@@ -147,11 +154,13 @@ body {
 }
 
 a.read-more {
-  font-size: var(--fs-md);
+  font-size: 13px;
   font-weight: var(--fw-bold);
   text-transform: capitalize;
-  color: black;
-
+  color: var(--clr-primary-dark);
+  font-family: 'open sans', sans-serif;
+  line-height: 1.8;
+  text-transform: uppercase;
   transition: all 0.3s ease;
 
   &:hover {
@@ -256,12 +265,14 @@ a.icon-btn {
 
 .header {
   &__top {
-    background-color: var(--clr-primary);
+   
     width: 100%;
-    padding: 5px 0;
+    padding: 5px 20px;
     top: 0;
     left: 0;
     z-index: 1000;
+    border-top: 1px solid var(--clr-primary-dark);
+    border-bottom: 1px solid var(--clr-primary-dark);
   }
 
   .nav {
@@ -271,7 +282,7 @@ a.icon-btn {
     align-items: center;
 
     &__menu {
-      background-color:black;
+      background-color:white;
       box-shadow: var(--box-shadow-md);
       position: fixed;
       top: 0;
@@ -301,6 +312,8 @@ a.icon-btn {
       display: flex;
       flex-direction: column;
       gap: var(--sp-lg);
+      text-transform: uppercase;
+      font-size: var(--fs-lg);
 
       @media screen and (min-width: 768px) {
         flex-direction: row;
@@ -312,9 +325,12 @@ a.icon-btn {
       font-weight: var(--fw-md);
       font-size: var(--fs-md);
       transition: all 0.3s;
+      text-align: center;
 
       @media screen and (min-width: 768px) {
         color: black;
+        text-align: center;
+       
 
         &:hover {
           color: var(--clr-grey-900);
@@ -339,7 +355,7 @@ a.icon-btn {
       gap: var(--sp-sm);
 
       i {
-        color: white;
+        color:var(--clr-primary);
       }
     }
 
@@ -347,7 +363,7 @@ a.icon-btn {
 
     &__toggle {
       display: block;
-      color: white;
+      color:var(--clr-primary);
       font-weight: var(--fw-md);
       font-size: var(--fs-lg);
 
@@ -406,6 +422,7 @@ a.icon-btn {
 
       .slider-item {
         position: relative;
+        padding-top: 10px;
 
         &__img {
           display: block;

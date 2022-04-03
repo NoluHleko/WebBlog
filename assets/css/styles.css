@@ -57,6 +57,14 @@ ul {
   list-style-type: none;
 }
 
+ul.nav__list {
+  text-align: center;
+}
+
+ul a {
+  text-align: center;
+}
+
 h1,
 h2,
 h3,
@@ -149,10 +157,13 @@ body {
 }
 
 a.read-more {
-  font-size: var(--fs-md);
+  font-size: 13px;
   font-weight: var(--fw-bold);
   text-transform: capitalize;
-  color: black;
+  color: var(--clr-primary-dark);
+  font-family: 'open sans', sans-serif;
+  line-height: 1.8;
+  text-transform: uppercase;
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
@@ -270,12 +281,13 @@ a.icon-btn:hover {
 
 /*=====  HEADER  ======*/
 .header__top {
-  background-color: var(--clr-primary);
   width: 100%;
-  padding: 5px 0;
+  padding: 5px 20px;
   top: 0;
   left: 0;
   z-index: 1000;
+  border-top: 1px solid var(--clr-primary-dark);
+  border-bottom: 1px solid var(--clr-primary-dark);
 }
 
 .header .nav {
@@ -292,7 +304,7 @@ a.icon-btn:hover {
 }
 
 .header .nav__menu {
-  background-color: black;
+  background-color: white;
   -webkit-box-shadow: var(--box-shadow-md);
           box-shadow: var(--box-shadow-md);
   position: fixed;
@@ -332,6 +344,8 @@ a.icon-btn:hover {
       -ms-flex-direction: column;
           flex-direction: column;
   gap: var(--sp-lg);
+  text-transform: uppercase;
+  font-size: var(--fs-lg);
 }
 
 @media screen and (min-width: 768px) {
@@ -349,11 +363,13 @@ a.icon-btn:hover {
   font-size: var(--fs-md);
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
+  text-align: center;
 }
 
 @media screen and (min-width: 768px) {
   .header .nav__link {
     color: black;
+    text-align: center;
   }
   .header .nav__link:hover {
     color: var(--clr-grey-900);
@@ -382,12 +398,12 @@ a.icon-btn:hover {
 }
 
 .header .nav__icons i {
-  color: white;
+  color: var(--clr-primary);
 }
 
 .header .nav__toggle {
   display: block;
-  color: white;
+  color: var(--clr-primary);
   font-weight: var(--fw-md);
   font-size: var(--fs-lg);
 }
@@ -449,6 +465,7 @@ a.icon-btn:hover {
 
 .hero .swiper-container .swiper-slide .slider-item {
   position: relative;
+  padding-top: 10px;
 }
 
 .hero .swiper-container .swiper-slide .slider-item__img {
