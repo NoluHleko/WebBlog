@@ -610,6 +610,10 @@ a.icon-btn:hover {
   left: 1rem;
 }
 
+.blog-item._AboutMe {
+  display: block;
+}
+
 .blog-item .categories {
   margin-top: var(--sp-lg);
   display: -webkit-box;
@@ -664,6 +668,43 @@ a.icon-btn:hover {
   font-family: 'open sans', sans-serif;
   font-size: var(--fs-sm);
   line-height: 1.8;
+  text-align: justify;
+  margin-right: 120px;
+}
+
+.blog-item #me {
+  padding-left: 300px;
+  text-transform: uppercase;
+  padding-bottom: 20px;
+}
+
+#quote {
+  position: relative;
+  padding: 0 40px;
+  padding-left: 300px;
+}
+
+#quote::before {
+  content: '\201C';
+  position: absolute;
+  font-weight: bold;
+  font-size: 4em;
+  color: #4d6753;
+  top: -30px;
+  left: 0px;
+  padding-left: 260px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+#quote::after {
+  content: '\201D';
+  position: absolute;
+  font-weight: bold;
+  font-size: 4em;
+  color: #4d6753;
+  bottom: -30px;
+  right: 0px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 /*=====  SIDEBAR  ======*/

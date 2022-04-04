@@ -542,6 +542,10 @@ a.icon-btn {
     top: 1rem;
     left: 1rem;
   }
+  &._AboutMe{
+    display: block;
+    
+  }
 
   .categories {
     margin-top: var(--sp-lg);
@@ -594,7 +598,46 @@ a.icon-btn {
     font-family: 'open sans', sans-serif;
     font-size: var(--fs-sm);
     line-height: 1.8;
+    text-align: justify;
+    margin-right: 120px;
   }
+
+  #me{
+    padding-left:300px;
+    text-transform: uppercase;
+    padding-bottom: 20px;
+  }
+
+  
+}
+#quote{
+  position: relative;
+  padding: 0 40px;
+  padding-left:300px;
+  &::before{
+    content: '\201C';
+    position: absolute;
+    font-weight: bold;
+    font-size: 4em;
+    color: #4d6753;
+    top: -30px;
+    left: 0px;
+    padding-left:260px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+  }
+  &::after{
+    content: '\201D';
+    position: absolute;
+    font-weight: bold;
+    font-size: 4em;
+    color: #4d6753;
+    bottom: -30px;
+    right: 0px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+
+  }
+  
+
 }
 
 
