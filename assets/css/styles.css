@@ -707,6 +707,30 @@ a.icon-btn:hover {
   font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
+.section-contact {
+  min-height: 100%;
+}
+
+.section-contact .form-cointainer {
+  margin: 0 auto;
+}
+
+.section-contact form {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+  grid-gap: 16px;
+  padding: 32px;
+}
+
+@media (min-width: 768px) {
+  .section-contact {
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 /*=====  SIDEBAR  ======*/
 .sidebar {
   position: -webkit-sticky;
@@ -819,6 +843,39 @@ a.icon-btn:hover {
       -ms-flex-pack: center;
           justify-content: center;
   gap: var(--sp-sm);
+}
+
+/*===== contact form  ======*/
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--clr-primary);
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+input[type=submit] {
+  background-color: var(--clr-primary);
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  cursor: pointer;
+  margin: 0 auto;
+}
+
+input[type=submit]:hover {
+  background-color: var(--clr-primary-dark);
+}
+
+.form-container {
+  padding: 20px;
+}
+
+.button-holder {
+  text-align: center;
 }
 
 /*=====  FOOTER  ======*/

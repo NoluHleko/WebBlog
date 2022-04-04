@@ -640,6 +640,24 @@ a.icon-btn {
 
 }
 
+.section-contact{
+  min-height: 100%; ///////////mayve change this////////////
+  .form-cointainer{
+    margin: 0 auto;
+  }
+
+  form{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 16px;
+    padding: 32px;
+  }
+
+  @media (min-width:768px){
+    grid-template-columns: repeat(2,1fr);
+  }
+}
+
 
 
 /*=====  SIDEBAR  ======*/
@@ -750,6 +768,36 @@ a.icon-btn {
     justify-content: center;
     gap: var(--sp-sm);
   }
+}
+/*===== contact form  ======*/
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--clr-primary);
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+input[type=submit] {
+  background-color:var(--clr-primary);
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  cursor: pointer;
+  margin: 0 auto;
+}
+
+input[type=submit]:hover {
+  background-color:var(--clr-primary-dark);
+}
+
+.form-container {
+  padding: 20px;
+}
+.button-holder{
+  text-align: center;
 }
 
 /*=====  FOOTER  ======*/
