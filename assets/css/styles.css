@@ -488,8 +488,6 @@ a.icon-btn:hover {
   right: 0;
   left: 0;
   bottom: 0;
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(20%, rgba(0, 0, 0, 0.6)), to(transparent));
-  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.6) 20%, transparent);
 }
 
 .hero .swiper-container .swiper-slide .slider-item__content {
@@ -786,7 +784,7 @@ a.icon-btn:hover {
 .footer {
   margin-top: var(--sp-2xl);
   padding: var(--sp-lg) 0;
-  background-color: var(--clr-grey-200);
+  background-color: var(--clr-primary);
 }
 
 .footer__menu {
@@ -798,10 +796,14 @@ a.icon-btn:hover {
       -ms-flex-direction: column;
           flex-direction: column;
   gap: var(--sp-sm);
+  font-size: 20px;
+  border-bottom: #111827 1px solid;
   text-transform: capitalize;
-  letter-spacing: 1px;
+  letter-spacing: 60px;
   font-style: var(--fs-md);
-  font-weight: var(--fw-md);
+  font-weight: var(--fw-reg);
+  padding-top: 30px;
+  padding-bottom: 30px;
 }
 
 .footer__menu a {
@@ -811,7 +813,7 @@ a.icon-btn:hover {
 }
 
 .footer__menu a:hover {
-  color: var(--clr-primary);
+  color: var(--clr-primary-dark);
 }
 
 @media screen and (min-width: 768px) {

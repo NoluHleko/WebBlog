@@ -440,11 +440,7 @@ a.icon-btn {
           right: 0;
           left: 0;
           bottom: 0;
-          background-image: linear-gradient(
-            to top,
-            rgba(0, 0, 0, 0.6) 20%,
-            transparent
-          );
+        
         }
         &__content {
           padding: var(--sp-xs) var(--sp-2xl);
@@ -717,24 +713,30 @@ a.icon-btn {
 .footer {
   margin-top: var(--sp-2xl);
   padding: var(--sp-lg) 0;
-  background-color: var(--clr-grey-200);
+  background-color: var(--clr-primary);
 
   &__menu {
     display: flex;
     flex-direction: column;
     gap: var(--sp-sm);
+    font-size:20px;
+    border-bottom: #111827 1px solid;
+    
+
 
     text-transform: capitalize;
-    letter-spacing: 1px;
+    letter-spacing: 60px;
     font-style: var(--fs-md);
-    font-weight: var(--fw-md);
+    font-weight: var(--fw-reg);
+    padding-top: 30px;
+    padding-bottom: 30px;
 
     a {
       color: var(--clr-grey-900);
       transition: all 0.3s ease;
 
       &:hover {
-        color: var(--clr-primary);
+        color: var(--clr-primary-dark);
       }
     }
 
