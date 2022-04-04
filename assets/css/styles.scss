@@ -607,7 +607,11 @@ a.icon-btn {
     text-transform: uppercase;
     padding-bottom: 20px;
   }
+  #contact-me{
+    text-transform: uppercase;
+    padding: 20px 0 20px 40%;
 
+  }
   
 }
 #quote{
@@ -798,6 +802,13 @@ input[type=submit]:hover {
 }
 .button-holder{
   text-align: center;
+}
+
+.contact-image{
+  margin-top: 10px;
+}
+.contact-sidebar{
+  margin-top: 10px;
 }
 
 /*=====  FOOTER  ======*/

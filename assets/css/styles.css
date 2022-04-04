@@ -678,6 +678,11 @@ a.icon-btn:hover {
   padding-bottom: 20px;
 }
 
+.blog-item #contact-me {
+  text-transform: uppercase;
+  padding: 20px 0 20px 40%;
+}
+
 #quote {
   position: relative;
   padding: 0 40px;
@@ -876,6 +881,14 @@ input[type=submit]:hover {
 
 .button-holder {
   text-align: center;
+}
+
+.contact-image {
+  margin-top: 10px;
+}
+
+.contact-sidebar {
+  margin-top: 10px;
 }
 
 /*=====  FOOTER  ======*/
