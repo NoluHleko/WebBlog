@@ -12,10 +12,10 @@
     />
 
     <!-- SWIPER CSS -->
-    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="{{url_for('static', filename='assets/css/swiper-bundle.min.css')}}" />
 
     <!-- CSS -->
-    <link rel="stylesheet" href="assets/css/styles.css" />
+    <link rel="stylesheet" href="{{url_for('static', filename='assets/css/styles.css')}}" />
 
     <title>Home</title>
   </head>
@@ -74,7 +74,7 @@
             <div class="swiper-slide">
               <article class="slider-item">
                 <img
-                  src="./assets/images/slider-2.jpg"
+                  src="{{url_for('static', filename='/assets/images/slider-2.jpg')}}"
                   alt="slider item"
                   class="slider-item__img"
                 />
@@ -87,7 +87,7 @@
             <div class="swiper-slide">
               <article class="slider-item">
                 <img
-                  src="./assets/images/slider-3.jpg"
+                  src="{{url_for('static', filename='/assets/images/slider-3.jpg')}}"
                   alt="slider item"
                   class="slider-item__img"
                 />
@@ -99,7 +99,7 @@
             <div class="swiper-slide">
               <article class="slider-item">
                 <img
-                  src="./assets/images/slider-4.jpg"
+                  src="{{url_for('static', filename='/assets/images/slider-4.jpg')}}"
                   alt="slider item"
                   class="slider-item__img"
                 />
@@ -121,7 +121,7 @@
               <div class="image-wrapper">
                 <a href="#"
                   ><img
-                    src="./assets/images/popular-1.jpg"
+                    src="{{url_for('static', filename='/assets/images/popular-1.jpg')}}"
                     alt="blog item"
                     class="blog-item__image"
                 /></a>
@@ -154,7 +154,7 @@
               <div class="image-wrapper">
                 <a href="#"
                   ><img
-                    src="./assets/images/popular-2.jpg"
+                    src="{{url_for('static', filename='/assets/images/popular-2.jpg')}}"
                     alt="blog item"
                     class="blog-item__image"
                 /></a>
@@ -187,7 +187,7 @@
               <div class="image-wrapper">
                 <a href="#"
                   ><img
-                    src="./assets/images/popular 3.jpg"
+                    src="{{url_for('static', filename='/assets/images/popular 3.jpg')}}"
                     alt="blog item"
                     class="blog-item__image"
                 /></a>
@@ -227,7 +227,7 @@
 
               <div class="widget__body">
                 <img
-                  src="./assets/images/pexels-guilherme-almeida-1858175.jpg"
+                  src="{{url_for('static', filename='/assets/images/pexels-guilherme-almeida-1858175.jpg')}}"
                   alt="profile photo"
                   class="profile-photo"
                 />
@@ -319,9 +319,9 @@
       <i class="ri-arrow-up-line"></i>
     </a>
  <!----------------------------------------slider Js------------------------------------------------->
-    <script src="assets/js/swiper-bundle.min.js"></script>
+    <script src="{{url_for('static', filename='assets/js/swiper-bundle.min.js')}}"></script>
 
   <!----------------------------------------main Js------------------------------------------------->
-    <script src="assets/js/main.js"></script>
+    <script src="{{url_for('static', filename='assets/js/main.js')}}"></script>
   </body>
 </html>
