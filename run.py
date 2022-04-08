@@ -1,5 +1,10 @@
-from myblog import app
+from distutils.log import debug
+from flask import Flask
+from myblog import create_app
 
 
-if __name__ =="__main__":
+
+
+if __name__=='__main__':
+    app= create_app()
     app.run(debug=True)
