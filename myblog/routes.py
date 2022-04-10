@@ -28,7 +28,7 @@ def register():
             flash('passwords do not match','warning')
             return redirect(url_for('register'))
         password_hash =bcrypt.generate_password_hash(password)
-        users = User (name=name, username=username, email=email, password=password_hash)
+        users = User(name=name, username=username, email=email, password=password_hash)
         db.ession.add(users)
         db.session.commit()
         flash('THhank you for registration', 'success')

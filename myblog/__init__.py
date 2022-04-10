@@ -1,8 +1,8 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
-
-
+from os import path
+from flask_login import LoginManager
 
 
 app = Flask(__name__)
