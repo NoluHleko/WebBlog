@@ -1,11 +1,17 @@
+<<<<<<< HEAD
 import bcrypt
 from flask import Flask, flash, render_template, request, redirect, url_for
 from myblog import app,db, Bcrypt
 from .models import User
+=======
+from myblog import app,db
+from flask import Flask, render_template
+>>>>>>> parent of 2c0454d... making progress
 
 
 @app.route('/')
 def home():
+<<<<<<< HEAD
     return render_template('index.html')
 
 @app.route('/register', methods =['GET', 'POST'] )
@@ -28,7 +34,7 @@ def register():
             flash('passwords do not match','warning')
             return redirect(url_for('register'))
         password_hash =bcrypt.generate_password_hash(password)
-        users = User(name=name, username=username, email=email, password=password_hash)
+        users = User (name=name, username=username, email=email, password=password_hash)
         db.ession.add(users)
         db.session.commit()
         flash('THhank you for registration', 'success')
@@ -36,3 +42,6 @@ def register():
 
         
     return render_template('admin/register.html')
+=======
+    return render_template('index.html')
+>>>>>>> parent of 2c0454d... making progress
