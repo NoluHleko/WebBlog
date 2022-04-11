@@ -9,12 +9,14 @@ login_manager = LoginManager(app)
 
 
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///myblog.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///Weblog22.db'
 app.config['SECRET_KEY']='NOSI199one'
 db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
-from .models import User
+from .models import User, Post
 from myblog import routes,db
+
+
 
 
 
