@@ -12,6 +12,9 @@ db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
 from .models import User
 from myblog import routes,db
-@app.shell_context_processor
-def make_shell_context():
-    return {'db': db, 'User': User}
+
+from flask_login import LoginManager
+login_manager = LoginManager()
+
+login_manager.login_view = "users.login"
+login_manager.login_message_category = "info"
