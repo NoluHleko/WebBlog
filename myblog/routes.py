@@ -1,9 +1,18 @@
 import bcrypt
-from flask import Flask, flash, render_template, request, redirect, url_for
+from flask import Flask, flash, render_template, request, redirect, url_for, current_app
 from myblog import app,db, bcrypt, login_manager
 
 from .models import User
+import os
+import secrets
 
+def save_images(photo):
+    hash_photo = secrets.token_urlsafe(10)
+    _, file_extention = os.path.splitext(photo.filename)
+    photo_name = hash_photo + file_extention
+    file_path = os.path.join(current_app.root_path,'static/img', photo_name)
+    photo.save(file_path)
+    return photo_name
 
 @app.route('/')
 @app.route('/home')
@@ -66,3 +75,9 @@ def logout():
 @login_required
 def dashboard():
     return render_template('admin/dashboard.html')
+
+
+@app.route('/addpost')
+@login_required
+def addpost():
+    return render_template ('admin/addpost.html')
