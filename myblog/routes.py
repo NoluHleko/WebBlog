@@ -1,7 +1,7 @@
 import bcrypt
 from flask import Flask, flash, render_template, request, redirect, url_for
-from myblog import app,db, bcrypt #addloginmanagerover here
-from flask_login import login_user, login_required, current_user, logout_user, login_manager
+from myblog import app,db, bcrypt, login_manager
+
 from .models import User
 
 
@@ -39,21 +39,20 @@ def register():
         
     return render_template('admin/register.html')
 
+from flask_login import login_user, login_required, current_user, logout_user
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     
     if request.method=="POST":
-        user=User.query.filter_by(username=request.form.get('username'))
-        login_user(user)
-
-        flask.flash('Logged in successfully.')
-
-        next = flask.request.args.get('next')
-   
-
-        return flask.redirect(next or flask.url_for('index'))
-    return flask.render_template('login.html', form=form)
+        user=User.query.filter_by(username=request.form.get('username')).first()
+        if user and bcrypt.check_password_hash(user.password, request.form.get('password')):
+            login_user(user)
+            flash('Logged in successfully.', 'success')
+            next =request.args.get('next')
+            return redirect(next or url_for('dashboard'))
+        flash('Wrong Password, Please try again', 'danger')
+    return render_template('login.html')
 
 
 @app.route('/dashboard')
