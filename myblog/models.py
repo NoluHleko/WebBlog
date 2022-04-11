@@ -1,4 +1,4 @@
-
+from myblog import db
 
 
 class User(db.Model):

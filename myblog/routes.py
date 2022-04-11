@@ -1,17 +1,12 @@
-<<<<<<< HEAD
 import bcrypt
 from flask import Flask, flash, render_template, request, redirect, url_for
 from myblog import app,db, Bcrypt
 from .models import User
-=======
-from myblog import app,db
-from flask import Flask, render_template
->>>>>>> parent of 2c0454d... making progress
 
 
 @app.route('/')
+@app.route('/home')
 def home():
-<<<<<<< HEAD
     return render_template('index.html')
 
 @app.route('/register', methods =['GET', 'POST'] )
@@ -37,11 +32,9 @@ def register():
         users = User (name=name, username=username, email=email, password=password_hash)
         db.ession.add(users)
         db.session.commit()
-        flash('THhank you for registration', 'success')
+        flash('Thank you for registration', 'success')
         return redirect (url_for ("dashboard"))
 
         
     return render_template('admin/register.html')
-=======
-    return render_template('index.html')
->>>>>>> parent of 2c0454d... making progress
+
