@@ -1,3 +1,4 @@
+from crypt import methods
 from turtle import title
 import bcrypt
 from flask import Flask, flash, render_template, request, redirect, url_for, current_app
@@ -11,14 +12,15 @@ def save_images(photo):
     hash_photo = secrets.token_urlsafe(10)
     _, file_extention = os.path.splitext(photo.filename)
     photo_name = hash_photo + file_extention
-    file_path = os.path.join(current_app.root_path,'static/img', photo_name)
+    file_path = os.path.join(current_app.root_path,'static/images', photo_name)
     photo.save(file_path)
     return photo_name
 
 @app.route('/')
 @app.route('/home')
 def home():
-    return render_template('index.html')
+    posts = Post.query.all()
+    return render_template('index.html', posts=posts)
 
 @app.route('/register', methods =['GET', 'POST'] )
 def register():
@@ -78,7 +80,7 @@ def dashboard():
     return render_template('admin/dashboard.html')
 
 
-@app.route('/addpost')
+@app.route('/addpost', methods=['POST', 'GET'])
 @login_required
 def addpost():
     if request.method =="POST":
