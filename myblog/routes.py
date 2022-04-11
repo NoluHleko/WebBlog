@@ -41,6 +41,7 @@ def register():
 
 from flask_login import login_user, login_required, current_user, logout_user
 
+#######################################################Login###############################
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     
@@ -52,9 +53,16 @@ def login():
             next =request.args.get('next')
             return redirect(next or url_for('dashboard'))
         flash('Wrong Password, Please try again', 'danger')
-    return render_template('login.html')
+    return render_template('admin/login.html')
 
+#######################################################Logout###############################
+@app.route('/logout')
+@login_required
+def logout():
+    logout_user()
+    return redirect(url_for('login'))
 
 @app.route('/dashboard')
+@login_required
 def dashboard():
-    return"Thank you for registering"
+    return render_template('admin/dashboard.html')
