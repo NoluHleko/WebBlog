@@ -1,8 +1,9 @@
+from turtle import title
 import bcrypt
 from flask import Flask, flash, render_template, request, redirect, url_for, current_app
 from myblog import app,db, bcrypt, login_manager
 
-from .models import User
+from .models import User, Post
 import os
 import secrets
 
@@ -80,4 +81,13 @@ def dashboard():
 @app.route('/addpost')
 @login_required
 def addpost():
+    if request.method =="POST":
+        title = request.form.get('title')
+        body = request.form.get('content')
+        photo = save_images(request.files.get('photo'))
+        post= Post(title=title, body=body, image=photo, author =current_user)
+        db.session.add(post)
+        db.session.commit()
+        flash("Your post has been submitted")
+        return redirect('dashboard', 'success')
     return render_template ('admin/addpost.html')

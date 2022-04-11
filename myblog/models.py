@@ -29,8 +29,8 @@ class Post(db.Model):
     comments = db.Column(db.Integer, default=0)
     views = db.Column(db.Integer, default=0)
     image=db.Column(db.String(120), default='image.jpg')
-    user_id = db.Column(db.Integer, db.ForeignKey('category.id'), nullable=False)
-    category = db.relationship('User',backref=db.backref('author', lazy=True))
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    author = db.relationship('User',backref=db.backref('author', lazy=True))
     pub_date = db.Column(db.DateTime, nullable=False,default=datetime.utcnow)
 
     def __repr__(self):

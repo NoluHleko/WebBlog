@@ -25,21 +25,21 @@
         {% endif %}
 {% endwith %}
         <div class="row">
-            <div class="col-md-2"></div>
-            <div class="col-md-6">
+            <div class="col-md-1"></div>
+            <div class="col-md-8">
 
                 <form method="POST" enctype="multipart/form-data">
                     <label for="">title</label>
-                    <input type="text" name="title" class="form-control" placeholder="Enter your post title" required>
+                    <input type="text" name="title" class="form-control mb-2" placeholder="Enter your post title" required>
 
                     <textarea name="content" class="forn-control" rows="10" cols="20"></textarea>
-                    <input type="file" name="photo" accept="image/*" class="form-control"  required>
+                    <input type="file" name="photo" accept="image/*" class="form-control mt-2"  required>
           
                     
                     <input type="submit" value="Add post" class="btn btn-info mt-3">
                 </form>
             </div>
-            
+            <div class="col-md-1"></div>
         </div>
 
     </div>
