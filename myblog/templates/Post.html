@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <main class="main container">
+  <!----------------------------------------slider area------------------------------------------------->
+      <div class="hero">
+        <div class="swiper-container hero__slider">
+          <ass="swiper-button-prev"></div>
+        </div>
+      </div>
+ <!----------------------------------------blog grids------------------------------------------------->
+      <div class="main-grid">
+        <div>
+       
+            <article class="blog-item">
+              <div class="img-wrapper">
+                <h1 id="me">{{post.title}}</h1>
+                
+               <img src="{{url_for('static', filename='/assets/images/'+post.image)}}"
+               class="_AboutMe">
+               <div class="meta"><p>{{ post.author.name }} {{ post.pub_date.strftime ('%Y %B, %d')}}</p></div>
+
+                <p class="excerpt">
+                  {{post.body}}
+                </p>
+                <!--q id="quote"> Whatever will Be, will be</q-->
+              </div>
+            </article>
+            
+
+        
+
+        </div>
+        
+   <!----------------------------------------side bar------------------------------------------------->   
+ <!----------------------------------------footer area------------------------------------------------->
+ {% endblock content %}

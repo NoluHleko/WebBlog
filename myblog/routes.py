@@ -24,6 +24,15 @@ def home():
     posts = Post.query.all()
     return render_template('index.html', posts=posts)
 
+@app.route ('/post/<int:post_id>', methods=['POST', 'GET'])
+def post(post_id):
+    post = Post.query.get_or_404 (post_id)
+    return render_template('Post.html', post=post)
+
+
+
+
+
 
 @app.route('/aboutme')
 def aboutme():
