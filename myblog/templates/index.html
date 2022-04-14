@@ -53,11 +53,12 @@
       <div class="main-grid">
         <div>
           <div class="blogs-grid">
+        {% for post in posts%}
             <article class="blog-item">
               <div class="image-wrapper">
                 <a href="#"
                   ><img
-                    src="{{url_for('static', filename='/assets/images/popular-1.jpg')}}"
+                    src="{{url_for('static', filename='/assets/images/'+post.image)}}"
                     alt="blog item"
                     class="blog-item__image"
                 /></a>
@@ -71,14 +72,13 @@
                 </ul>
 
                 <h2 class="title">
-                  <a href="#">Trip to vegas: travel itinerary</a>
+                  <a href="#">{{ post.title }}</a>
                 </h2>
 
-                <div class="meta"><p>by Nobody</p></div>
+                <div class="meta"><p>{{ post.author.name }} {{ post.pub_date.strftime ('%Y %B, %d')}}</p></div>
 
                 <p class="excerpt">
-                  Eodem modo typi, qui nunc nobis videntur parum clari, fiant
-                  sollemnes in futurum. Mirum est notare quam…
+                  {{ post.body | truncate (100,True) }}
                 </p>
 
                 <div>
@@ -86,76 +86,13 @@
                 </div>
               </div>
             </article>
-            <article class="blog-item">
-              <div class="image-wrapper">
-                <a href="#"
-                  ><img
-                    src="{{url_for('static', filename='/assets/images/popular-2.jpg')}}"
-                    alt="blog item"
-                    class="blog-item__image"
-                /></a>
-
-                <span class="tag tag--primary"><a href="#">featured</a></span>
-              </div>
-              <div class="content-wrapper">
-                <ul class="categories">
-                  <li><a href="#">Explore</a></li>
-                  <li><a href="#">Lifestyle</a></li>
-                </ul>
-
-                <h2 class="title">
-                  <a href="#">Trip to vegas: travel itinerary</a>
-                </h2>
-
-                <div class="meta"><p>by Nobody</p></div>
-
-                <p class="excerpt">
-                  Eodem modo typi, qui nunc nobis videntur parum clari, fiant
-                  sollemnes in futurum. Mirum est notare quam…
-                </p>
-
-                <div>
-                  <a href="#" class="read-more">continue reading...</a>
-                </div>
-              </div>
-            </article>
-            <article class="blog-item">
-              <div class="image-wrapper">
-                <a href="#"
-                  ><img
-                    src="{{url_for('static', filename='/assets/images/popular 3.jpg')}}"
-                    alt="blog item"
-                    class="blog-item__image"
-                /></a>
-
-                <span class="tag tag--primary"><a href="#">featured</a></span>
-              </div>
-              <div class="content-wrapper">
-                <ul class="categories">
-                  <li><a href="#">Explore</a></li>
-                  <li><a href="#">Lifestyle</a></li>
-                </ul>
-
-                <h2 class="title">
-                  <a href="#">Trip to vegas: travel itinerary</a>
-                </h2>
-
-                <div class="meta"><p>by Nobody</p></div>
-
-                <p class="excerpt">
-                  Eodem modo typi, qui nunc nobis videntur parum clari, fiant
-                  sollemnes in futurum. Mirum est notare quam…
-                </p>
-
-                <div>
-                  <a href="#" class="read-more">continue reading...</a>
-                </div>
-              </div>
-         </article>
-
+        {% endfor %}
+            
+            
           </div>
- <!----------------------------------------side bar------------------------------------------------->
+
         </div>
+ <!----------------------------------------side bar------------------------------------------------->
         <aside>
           <div class="sidebar">
             <div class="widget widget-profile">

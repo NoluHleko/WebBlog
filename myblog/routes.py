@@ -24,6 +24,11 @@ def home():
     posts = Post.query.all()
     return render_template('index.html', posts=posts)
 
+
+@app.route('/aboutme')
+def aboutme():
+    return render_template('About-Me.html')
+
 @app.route('/register', methods =['GET', 'POST'] )
 def register():
     if request.method == "POST": #Checks if user and email already exist and flashes a message
