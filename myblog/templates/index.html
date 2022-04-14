@@ -56,7 +56,7 @@
         {% for post in posts%}
             <article class="blog-item">
               <div class="image-wrapper">
-                <a href="#"
+                <a href="../../post/{{post.id}}/{{post.slug}}"
                   ><img
                     src="{{url_for('static', filename='/assets/images/'+post.image)}}"
                     alt="blog item"
@@ -72,17 +72,17 @@
                 </ul>
 
                 <h2 class="title">
-                  <a href="post/{{post.id}}">{{ post.title }}</a>
+                  <a href="../../post/{{post.id}}/{{post.slug}}">{{ post.title }}</a>
                 </h2>
 
-                <div class="meta"><p>{{ post.author.name }} {{ post.pub_date.strftime ('%Y %B, %d')}}</p></div>
+                <div class="meta"><p>by {{ post.author.name }} - {{ post.pub_date.strftime ('%Y %B, %d')}}</p></div>
 
                 <p class="excerpt">
                   {{ post.body | truncate (100,True) }}
                 </p>
 
                 <div>
-                  <a href="post/{{post.id}}" class="read-more">continue reading...</a>
+                  <a href="post/{{post.id}}/{{post.slug}}" class="read-more">continue reading...</a>
                 </div>
               </div>
             </article>

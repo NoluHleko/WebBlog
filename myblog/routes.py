@@ -7,6 +7,8 @@ from myblog import app,db, bcrypt, login_manager
 from .models import User, Post
 import os
 import secrets
+from slugify import slugify
+from werkzeug.utils import secure_filename
 
 APP_ROOT = os.path.dirname(os.path.abspath(__file__))
 
@@ -21,11 +23,11 @@ def save_images(photo):
 @app.route('/')
 @app.route('/home')
 def home():
-    posts = Post.query.all()
+    posts = Post.query.order_by(Post.id.desc()).all()
     return render_template('index.html', posts=posts)
 
-@app.route ('/post/<int:post_id>', methods=['POST', 'GET'])
-def post(post_id):
+@app.route ('/post/<int:post_id>/<string:slug>', methods=['POST', 'GET'])
+def post(post_id, slug):
     post = Post.query.get_or_404 (post_id)
     return render_template('Post.html', post=post)
 
