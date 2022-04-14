@@ -30,9 +30,9 @@
 
                 <form method="POST" enctype="multipart/form-data" >
                     <label for="">Title</label>
-                    <input type="text" name="title" class="form-control mb-2" placeholder="Enter your post title" required>
+                    <input type="text" name="title" class="form-control mb-2" placeholder="Enter your post title" value="{{post.title}}" required>
 
-                    <textarea name="content" class="forn-control" rows="10" cols="83"></textarea>
+                    <textarea name="content" class="forn-control" rows="10" cols="83">{{post.body}}</textarea>
                     <input type="file" name="photo" accept="image/*" class="form-control mt-2"  required>
           
                     

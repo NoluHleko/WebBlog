@@ -95,7 +95,8 @@ def logout():
 @app.route('/dashboard')
 @login_required
 def dashboard():
-    return render_template('admin/dashboard.html')
+    posts= Post.query.order_by(Post.id.desc()).all()
+    return render_template('admin/dashboard.html', posts=posts)
 
 
 @app.route('/addpost', methods=['POST', 'GET'])
@@ -108,6 +109,18 @@ def addpost():
         post= Post(title=title, body=body, image=photo, author =current_user)
         db.session.add(post)
         db.session.commit()
-        flash("Your post has been submitted")
-        return redirect('dashboard', 'success')
+        flash("Your post has been submitted", 'success')
+        return redirect('dashboard')
     return render_template ('admin/addpost.html')
+
+@app.route ('/updatepost/<id>', methods=["POST", "GET"])
+@login_required
+def updatepost(id):
+    post = Post.query.get_or_404(id)
+    if request.method =="POST":
+        post.title = request.form.get('title')
+        post.body = request.form.get('content')
+        db.session.commit()
+        flash ('Post updated succesfully', 'success')
+        return redirect (url_for('dashboard'))
+    return render_template('admin/updatepost.html', post=post)
