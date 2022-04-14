@@ -8,11 +8,13 @@ from .models import User, Post
 import os
 import secrets
 
+APP_ROOT = os.path.dirname(os.path.abspath(__file__))
+
 def save_images(photo):
     hash_photo = secrets.token_urlsafe(10)
     _, file_extention = os.path.splitext(photo.filename)
     photo_name = hash_photo + file_extention
-    file_path = os.path.join(current_app.root_path,'static/images', photo_name)
+    file_path = os.path.join(current_app.root_path,'static/assets/images', photo_name)
     photo.save(file_path)
     return photo_name
 
