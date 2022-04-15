@@ -118,6 +118,12 @@ def addpost():
 def updatepost(id):
     post = Post.query.get_or_404(id)
     if request.method =="POST":
+        if request.files.get('photo'):
+            try:
+                os.unlink(os.path.join(current_app.root_path,'static/assets/images/' + post.image))
+                post.image = save_images(request.files.get('photo'))
+            except:
+                post.image = save_images(request.files.get('photo'))
         post.title = request.form.get('title')
         post.body = request.form.get('content')
         db.session.commit()

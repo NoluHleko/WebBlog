@@ -28,15 +28,16 @@
             <div class="col-md-1"></div>
             <div class="col-md-8">
 
-                <form method="POST" enctype="multipart/form-data" >
+                <form action="" class="form-group p-5" method="POST" enctype="multipart/form-data" >
                     <label for="">Title</label>
-                    <input type="text" name="title" class="form-control mb-2" placeholder="Enter your post title" value="{{post.title}}" required>
+                    <input type="text" name="title" id="title" class="form-control mt-2" placeholder="Enter your post title" value="{{post.title}}" required>
 
+                    <label for="content">Content</label>
                     <textarea name="content" class="forn-control" rows="10" cols="83">{{post.body}}</textarea>
-                    <input type="file" name="photo" accept="image/*" class="form-control mt-2"  required>
-          
-                    
-                    <input type="submit" value="Add post" class="btn btn-info mt-3">
+
+                    <a href="{{url_for('static', filename='/assets/images/'+ post.image)}}">{{url_for('static', filename='/assets/images/'+ post.image)}}</a>
+                    <input type="file" name="photo"  class="form-control mt-2"  required>
+                    <input type="submit" value="Add post" class="btn btn-info mt-2">
                 </form>
             </div>
             <div class="col-md-1"></div>
