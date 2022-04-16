@@ -32,10 +32,6 @@ def post(post_id, slug):
     return render_template('Post.html', post=post)
 
 
-
-
-
-
 @app.route('/aboutme')
 def aboutme():
     return render_template('About-Me.html')
@@ -144,3 +140,13 @@ def delete(id):
     flash ('Post deleted succesfully', 'success')
     return redirect (url_for('dashboard'))
 
+@app.route('/contactme', methods=['GET', 'POST'])
+def contactme():
+    if request.method == "POST":
+         flash('message sent', 'success')
+         return redirect (url_for('contactme'))
+    return render_template ("contactMe.html")
+
+@app.route('/love')
+def love():
+    return "love is for everyone"

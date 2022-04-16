@@ -1,70 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+{% extends 'base.html' %}
 
-    <!-- REMIXICONS -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
-      rel="stylesheet"
-    />
-
-    <!-- SWIPER CSS -->
-    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css" />
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="assets/css/styles.css" />
-
-    <title>Contact</title>
-  </head>
-  <body>
-    <header class="header" id="header">
-<!--------------------------------------------------------Logo Area----------------------------------------------------->
-      <div class="header__bottom">
-        <div class="header__title">Nolusindiso</div>
-        <h1 class="header__subtitle">From Mzansi to the world</h1>
-      </div>
-
-<!--------------------------------------------------------Nav Items----------------------------------------------------->
-      <div class="header__top">
-        <nav class="nav container">
-          <div class="nav__menu" id="nav-menu">
-
-            <ul class="nav__list">
-              <li class="nav__item">
-                <a href="#" class="nav__link">Home</a>
-              </li>
-              <li class="nav__item">
-                <a href="#" class="nav__link">Blogs</a>
-              </li>
-              <li class="nav__item">
-                <a href="#" class="nav__link">Categories</a>
-              </li>
-              <li class="nav__item">
-                <a href="#" class="nav__link">About Us</a>
-              </li>
-            </ul>
-
-            <i class="ri-close-line nav__close" id="nav-close"></i>
-          </div>
-
-          <div class="nav__toggle" id="nav-toggle">
-            <i class="ri-menu-2-line"></i>
-          </div>
-
-          <div class="nav__icons">
-            <a href="https://www.facebook.com/melanatedbutterfly" class="nav__link"><i class="ri-facebook-line"></i></a>
-            <a href="https://www.instagram.com/justnolu/" class="nav__link"><i class="ri-instagram-line"></i></a>
-            <a href="https://twitter.com/nolu_hleko" class="nav__link"><i class="ri-twitter-line"></i></a>
-            <a href="https://www.youtube.com/channel/UCus8tyv6QUKtgDitvfTAb_g" class="nav__link"><i class="ri-youtube-line"></i></a>
-          </div>
-        </nav>
-      </div>
- 
-      
-    </header>
+{% block content %}
 
     <main class="main container">
   <!----------------------------------------slider area------------------------------------------------->
@@ -72,7 +8,15 @@
  <!----------------------------------------blog grids------------------------------------------------->
       <div class="main-grid">
         <div>
-          
+          {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            <div class=flashes>
+            {% for category, message in messages %}
+              <div class=" alert alert-{{ category }}">{{ message }}</div>
+            {% endfor %}
+            </div>
+          {% endif %}
+          {% endwith %} 
             
             
             <article class="blog-item">
@@ -80,7 +24,8 @@
                   
                 <h1 id="contact-me">Contact Me</h1>
                   <img
-                    src="./assets/images/contact-me.jpg"
+                    src="{{url_for('static', filename='/assets/images/contact-me.jpg')}}"
+                    
                     alt="blog item"
                     class="blog-item__image contact-image"
                     width="900" height="300"
@@ -90,125 +35,55 @@
               </div>
          </article>
          <div class="form-container">
-            <form action="">
+            <form name="sendemil" id="my-form" action="https://formspree.io/f/xzbojkbo" method="POST">
               
-              <input type="text" id="name" name="firstname" placeholder="Name*">
+              <input type="text" id="name" name="firstname" placeholder="Name*" required>
           
-                <input type="text" id="email" name="email" placeholder="email address*">  
+                <input type="email" id="email" name="email" width="100%" placeholder="email address*" required>  
           
-              <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+              <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px" required></textarea>
                 <div class="button-holder">
               <input type="submit" value="Submit">
+        
             </div>
+            <p id="my-form-status"></p>
             </form>
           </div>
 
           
 
         </div>
-         <!----------------------------------------side bar------------------------------------------------->
-        <aside>
-          <div class="sidebar contact-sidebar">
-            <div class="widget widget-profile">
-              <h3 class="title">About Me</h3>
-
-              <div class="widget__body">
-                <img
-                  src="./assets/images/pexels-guilherme-almeida-1858175.jpg"
-                  alt="profile photo"
-                  class="profile-photo"
-                />
-
-                <p>
-                  At vero eos et accusamus et iusto odio dignissimos ducimus qui
-                  blanditiis praesentium voluptatum deleniti.
-                </p>
-
-              
-              </div>
-            </div>
-            <div class="widget widget-social">
-              <h3 class="title">Stay in touch</h3>
-
-              <div class="widget__body">
-                <p class="text">
-                  Follow Me
-                </p>
-
-                <a href="https://www.facebook.com/melanatedbutterfly" class="icon-btn">
-                  <i class="ri-facebook-line"></i>
-                </a>
-                <a href="https://www.instagram.com/justnolu/" class="icon-btn">
-                  <i class="ri-instagram-line"></i>
-                </a>
-                <a href="https://twitter.com/nolu_hleko" class="icon-btn">
-                  <i class="ri-twitter-line"></i>
-                </a>
-              </div>
-            </div>
-           
-            <div class="widget widget-categories">
-              <h3 class="title">categories</h3>
-
-              <div class="widget__body">
-                <ul class="categories">
-
-                  <!----------------------------add categories in this line-------------------------->
-                </ul>
-              </div>
-
-
-
-
-
-
-            </div>
-            <div class="widget widget-recent-posts">
-              <h3 class="title">recent posts</h3>
-            </div>
-            <div class="widget widget-tags">
-              <h3 class="title">tags</h3>
-
-              <div class="widget__body">
-                <div class="widget-tags__wrapper">
-                  <span class="tag"><a href="#">featured</a></span>
-                  <span class="tag"><a href="#">adventure</a></span>
-                  <span class="tag"><a href="#">food</a></span>
-                  <span class="tag"><a href="#">fashion</a></span>
-                  <span class="tag"><a href="#">travel</a></span>
-                  <span class="tag"><a href="#">fun</a></span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </aside>
-      </div>
-    </main>
- <!----------------------------------------footer area------------------------------------------------->
-    <footer class="footer">
-      <div class="container">
-        <ul class="footer__menu">
-          <a href="https://www.facebook.com/melanatedbutterfly" class="nav__link"> <i class="ri-facebook-line"></i></a>
-         
-          <a href="https://www.instagram.com/justnolu/" class="nav__link"><i class="ri-instagram-line"></i></a>
-          <a href="https://twitter.com/nolu_hleko" class="nav__link"><i class="ri-twitter-line"></i></a>
-          <a href="https://www.youtube.com/channel/UCus8tyv6QUKtgDitvfTAb_g" class="nav__link"><i class="ri-youtube-line"></i></a>
-        </ul>
-
-        <div class="seperator"></div>
-
-        <span class="copyright">&copy;Nolusindiso- 2022</span>
-      </div>
-    </footer>
-
-   <!----------------------------------------Back to top button------------------------------------------------->
-    <a href="#" class="icon-btn" id="back-to-top">
-      <i class="ri-arrow-up-line"></i>
-    </a>
- <!----------------------------------------slider Js------------------------------------------------->
-    <script src="assets/js/swiper-bundle.min.js"></script>
-
-  <!----------------------------------------main Js------------------------------------------------->
-    <script src="assets/js/main.js"></script>
-  </body>
-</html>
+        <script>
+          var form = document.getElementById("my-form");
+          
+          async function handleSubmit(event) {
+            event.preventDefault();
+            var status = document.getElementById("my-form-status");
+            var data = new FormData(event.target);
+            fetch(event.target.action, {
+              method: form.method,
+              body: data,
+              headers: {
+                  'Accept': 'application/json'
+              }
+            }).then(response => {
+              if (response.ok) {
+                status.innerHTML = "Thanks for your submission!";
+                form.reset()
+              } else {
+                response.json().then(data => {
+                  if (Object.hasOwn(data, 'errors')) {
+                    status.innerHTML = data["errors"].map(error => error["message"]).join(", ")
+                  } else {
+                    status.innerHTML = "Oops! There was a problem submitting your form"
+                  }
+                })
+              }
+            }).catch(error => {
+              status.innerHTML = "Oops! There was a problem submitting your form"
+            });
+          }
+          form.addEventListener("submit", handleSubmit)
+      </script>
+      <!----------------------------------------side bar------------------------------------------------->
+         {% endblock content %}      
