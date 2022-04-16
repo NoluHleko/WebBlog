@@ -427,6 +427,11 @@ a.icon-btn:hover {
   margin-bottom: var(--sp-xs);
 }
 
+.header__title a {
+  text-decoration: none;
+  color: inherit;
+}
+
 .header__subtitle {
   color: var(--clr-grey-900);
   text-transform: uppercase;
