@@ -130,3 +130,17 @@ def updatepost(id):
         flash ('Post updated succesfully', 'success')
         return redirect (url_for('dashboard'))
     return render_template('admin/updatepost.html', post=post)
+
+@app.route('/delete/<id>')
+@login_required
+def delete(id):
+    post = Post.query.get_or_404(id)
+    try:
+        os.unlink(os.path.join(current_app.root_path,'static/assets/images/' + post.image))
+        db.session.delete(post)
+    except:
+        db.session.delete(post)
+    db.session.commit()
+    flash ('Post deleted succesfully', 'success')
+    return redirect (url_for('dashboard'))
+
