@@ -617,6 +617,10 @@ a.icon-btn {
     padding: 20px 0 20px 40%;
 
   }
+  #post-title{
+   
+    text-transform: uppercase;
+    padding-bottom: 20px;}
   
 }
 #quote{
@@ -821,7 +825,7 @@ input[type=submit]:hover {
   margin-top: 10px;
 }
 .contact-sidebar{
-  margin-top: 10px;
+  margin-top: 50px;
 }
 
 /*=====  FOOTER  ======*/
@@ -869,7 +873,7 @@ input[type=submit]:hover {
   }
 }
 
-//////////////////////////////////////Registration Form//////////////////////////////////@at-root
+//////////////////////////////////////Gallery//////////////////////////////////@at-root
 
 .gallery-container{
   display: flex;
@@ -878,6 +882,19 @@ input[type=submit]:hover {
   align-items: center;
   text-align: center;
   margin: 40px 20px 0 20px;
+  font-family: 'Open Sans',sans-serif;
+}
+
+
+.gallery-container .gallery-heading{
+  font-size: 3em;
+  font-weight: bolder;
+
+}
+.gallery-container .gallery-heading h3 span{
+  font-weight: 100;
+  margin-bottom: 20px;
+  
 }
 
 .gallery-container .box{
@@ -886,13 +903,27 @@ input[type=submit]:hover {
   justify-content: space-between;
 
 }
+
 .gallery-container .box .dream{
   display: flex;
   flex-direction: column;
   width: 32.5%;
 }
+
 .gallery-container .box .dream img{
   width: 100%;
   padding-bottom: 15px;
   border-radius: 5px;
+
+  
 }
+
+
+.gallery-heading{
+  padding-bottom: 50px;
+}
+
+
+
+
+

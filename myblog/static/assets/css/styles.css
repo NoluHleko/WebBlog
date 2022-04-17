@@ -688,6 +688,11 @@ a.icon-btn:hover {
   padding: 20px 0 20px 40%;
 }
 
+.blog-item #post-title {
+  text-transform: uppercase;
+  padding-bottom: 20px;
+}
+
 #quote {
   position: relative;
   padding: 0 40px;
@@ -904,7 +909,7 @@ input[type=submit]:hover {
 }
 
 .contact-sidebar {
-  margin-top: 10px;
+  margin-top: 50px;
 }
 
 /*=====  FOOTER  ======*/
@@ -978,6 +983,17 @@ input[type=submit]:hover {
           align-items: center;
   text-align: center;
   margin: 40px 20px 0 20px;
+  font-family: 'Open Sans',sans-serif;
+}
+
+.gallery-container .gallery-heading {
+  font-size: 3em;
+  font-weight: bolder;
+}
+
+.gallery-container .gallery-heading h3 span {
+  font-weight: 100;
+  margin-bottom: 20px;
 }
 
 .gallery-container .box {
@@ -1008,5 +1024,9 @@ input[type=submit]:hover {
   width: 100%;
   padding-bottom: 15px;
   border-radius: 5px;
+}
+
+.gallery-heading {
+  padding-bottom: 50px;
 }
 /*# sourceMappingURL=styles.css.map */
