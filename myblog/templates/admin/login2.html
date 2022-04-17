@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/style.css" />
+    <title>Registration</title>
+
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing:border-box ;
+        font-family: "Open Sans", sans-serif;
+    }
+    body{
+        display: flex;
+        height: 100vh;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        background: linear-gradient(135deg, #bac2ab, white);
+    }
+.form-container{
+    max-width: 700px;
+    width: 100%;
+    background-color: whitesmoke;
+    padding: 25px 30px;
+    border-radius: 5px;
+}
+.form-container .title{
+    font-size: 25px;
+    font-weight: 500;
+    position: relative;
+}
+.form-container .title::before{
+    content: '';
+    position:absolute;
+    left: 0;
+    bottom: 0%;
+    height: 3px;
+    width:30px;
+    background: linear-gradient(135deg, #bac2ab, white);
+    background:#a4bd76 ;
+}
+.form-container form .user-details{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 20px 0 12px 0;
+}
+
+form .user-details .input-box{
+    margin-bottom: 15px;
+    width: calc(100% / 2 - 20px);
+}
+
+.user-details .input-box .details {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+.user-details .input-box input{
+    height: 45px;
+    width: 100%;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding-left: 15px;
+    font-size: 16px;
+    border-bottom-width: 2px;
+    transition: all  0.3s ease;
+}
+.user-details .input-box input:focus,
+.user-details .input-box input:valid{
+    border-color: #81945e;
+}
+form .button{
+    height: 45px;
+    margin: 45px 0;
+}
+form .button input{
+    height: 100%;
+    width: 100%;
+    outline: none;
+    color:black;
+    border: none;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 1px;
+    letter-spacing: 1px;
+    background-color: #bac2ab;
+
+}
+form .button input:hover{
+    background: linear-gradient(135deg, #bac2ab, white);
+}
+
+@media (max-width: 584px) {
+    .form-container{
+        max-width: 100%;
+    
+    }
+    form .user-details .input-box{
+        margin-bottom: 15px;
+        width: 100%;
+    }
+    .form-container form .user-details{
+        max-height: 300px;
+        overflow-y: scroll;
+    }
+    .user-details::-webkit-scrollbar{
+        width: 0;
+    }
+}
+
+</style>
+</head>
+<body id="form-body">
+    <div class="form-container">
+        <div class="title">Login</div>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          <div class=flashes>
+          {% for category, message in messages %}
+            <div class=" alert alert-{{ category }}">{{ message }}</div>
+          {% endfor %}
+          </div>
+        {% endif %}
+{% endwith %}    
+        <form method="POST">
+            <div class="user-details">
+                <div class="input-box">
+                  
+                <div class="input-box">
+                    <span class="details">Username</span>
+                    <input type="text" name="username" id="username" placeholder="Enter Your Username" required>
+
+                </div>
+      
+                <div class="input-box">
+                    <span class="details">Password</span>
+                    <input type="password" name="password" id="password" placeholder="Enter Your Password" required>
+
+                </div>
+                
+            </div>
+            <div class="button">
+                <input type="submit" value="login">
+            </div>
+        </form>
+    </div>
+    
+</body>
+</html>

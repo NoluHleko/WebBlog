@@ -918,12 +918,27 @@ input[type=submit]:hover {
   
 }
 
-
 .gallery-heading{
   padding-bottom: 50px;
 }
 
+@media only screen and (max-width: 769px){
+  .gallery-container .box{
+    flex-direction: column;
+  }
+  .gallery-container .box .dream{
+    width: 100%;
+  }
+}
+@media only screen and (max-width: 769px){
+  .gallery-container .gallery-heading{
+    width: 100%;
 
+  .gallery-container .gallery-heading h3{
+    font-size: 1em;
+  }
+  }
+}
 
 
 
