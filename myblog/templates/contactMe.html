@@ -86,4 +86,81 @@
           form.addEventListener("submit", handleSubmit)
       </script>
       <!----------------------------------------side bar------------------------------------------------->
+      <aside>
+        <div class="sidebar">
+          <div class="widget widget-profile">
+            <h3 class="title">About Me</h3>
+      
+            <div class="widget__body">
+              <img
+                src="{{url_for('static', filename='/assets/images/pexels-guilherme-almeida-1858175.jpg')}}"
+                alt="profile photo"
+                class="profile-photo"
+              />
+      
+              <p>
+                At vero eos et accusamus et iusto odio dignissimos ducimus qui
+                blanditiis praesentium voluptatum deleniti.
+              </p>
+      
+            
+            </div>
+          </div>
+          <div class="widget widget-social">
+            <h3 class="title">Stay in touch</h3>
+      
+            <div class="widget__body">
+              <p class="text">
+                Follow Me
+              </p>
+      
+              <a href="https://www.facebook.com/melanatedbutterfly" class="icon-btn">
+                <i class="ri-facebook-line"></i>
+              </a>
+              <a href="https://www.instagram.com/justnolu/" class="icon-btn">
+                <i class="ri-instagram-line"></i>
+              </a>
+              <a href="https://twitter.com/nolu_hleko" class="icon-btn">
+                <i class="ri-twitter-line"></i>
+              </a>
+            </div>
+          </div>
+         
+          <div class="widget widget-categories">
+            <h3 class="title">categories</h3>
+      
+            <div class="widget__body">
+              <ul class="categories">
+      
+                <!----------------------------add categories in this line-------------------------->
+              </ul>
+            </div>
+      
+      
+      
+      
+      
+      
+          </div>
+          <div class="widget widget-recent-posts">
+            <h3 class="title">recent posts</h3>
+          </div>
+          <div class="widget widget-tags">
+            <h3 class="title">tags</h3>
+      
+            <div class="widget__body">
+              <div class="widget-tags__wrapper">
+                <span class="tag"><a href="#">featured</a></span>
+                <span class="tag"><a href="#">adventure</a></span>
+                <span class="tag"><a href="#">food</a></span>
+                <span class="tag"><a href="#">fashion</a></span>
+                <span class="tag"><a href="#">travel</a></span>
+                <span class="tag"><a href="#">fun</a></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </aside>
+      </div>
+      </main>
          {% endblock content %}      

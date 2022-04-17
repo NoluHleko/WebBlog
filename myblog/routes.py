@@ -147,6 +147,6 @@ def contactme():
          return redirect (url_for('contactme'))
     return render_template ("contactMe.html")
 
-@app.route('/love')
-def love():
-    return "love is for everyone"
+@app.route('/travel')
+def travel():
+    return render_template ('travel.html')
