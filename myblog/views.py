@@ -23,7 +23,7 @@ def save_images(photo):
     photo.save(file_path)
     return photo_name
 
-    
+
 
 @views.route('/')
 @views.route('/home')
@@ -49,8 +49,6 @@ def aboutme():
 from flask_login import login_required, current_user
 
 
-
-#######################################################Dashboard###############################
 @views.route('/dashboard')
 @login_required
 def dashboard():
