@@ -20,7 +20,7 @@
     <td>{{post.title}}</td>
     <td>{{post.pub_date.strftime('%Y %B %d')}}</td>
     <td><img src="{{url_for('static', filename='/assets/images/'+ post.image)}}" width="50"></td>
-    <td><a href="{{url_for('updatepost', id=post.id)}}" class="btn btn-sm btn-success">Edit</a></td>
+    <td><a href="{{url_for('views.updatepost', id=post.id)}}" class="btn btn-sm btn-success">Edit</a></td>
     <td>
       <button type="button" id="#del-{{post.id}}" class="btn btn-primary btn-danger btn-sm" data-toggle="modal" data-target="#del-{{post.id}}">
         Delete

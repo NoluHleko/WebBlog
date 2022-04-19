@@ -37,6 +37,8 @@ class Post(db.Model):
     def __repr__(self):
         return '<Post %r>' % self.title
 
+#######################################################URL Slug###############################
+
     @staticmethod
     def generate_slug(target, value, oldvalue, initiator):
         if value and (not target.slug or value != oldvalue):
