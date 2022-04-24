@@ -1,0 +1,170 @@
+{% extends 'base.html' %}
+{% block title %}
+        Contact Me
+      {% endblock %}
+
+
+{% block content %}
+
+    <main class="main container">
+  <!----------------------------------------slider area------------------------------------------------->
+      
+ <!----------------------------------------blog grids------------------------------------------------->
+      <div class="main-grid">
+        <div>
+          {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            <div class=flashes>
+            {% for category, message in messages %}
+              <div class=" alert alert-{{ category }}">{{ message }}</div>
+            {% endfor %}
+            </div>
+          {% endif %}
+          {% endwith %} 
+            
+            
+            <article class="blog-item">
+              <div class="">
+                  
+                <h1 id="contact-me">Contact Me</h1>
+                  <img
+                    src="{{url_for('static', filename='/assets/images/contact-me.jpg')}}"
+                    
+                    alt="blog item"
+                    class="blog-item__image contact-image"
+                    width="900" height="300"
+                />
+
+                
+              </div>
+         </article>
+         <div class="form-container">
+            <form name="sendemil" id="my-form" action="https://formspree.io/f/xzbojkbo" method="POST">
+              
+              <input type="text" id="name" name="firstname" placeholder="Name*" required>
+          
+                <input type="email" id="email" name="email" width="100%" placeholder="email address*" required>  
+          
+              <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px" required></textarea>
+                <div class="button-holder">
+              <input type="submit" value="Submit">
+        
+            </div>
+            <p id="my-form-status"></p>
+            </form>
+          </div>
+
+          
+
+        </div>
+        <script>
+          var form = document.getElementById("my-form");
+          
+          async function handleSubmit(event) {
+            event.preventDefault();
+            var status = document.getElementById("my-form-status");
+            var data = new FormData(event.target);
+            fetch(event.target.action, {
+              method: form.method,
+              body: data,
+              headers: {
+                  'Accept': 'application/json'
+              }
+            }).then(response => {
+              if (response.ok) {
+                status.innerHTML = "Thanks for your submission!";
+                form.reset()
+              } else {
+                response.json().then(data => {
+                  if (Object.hasOwn(data, 'errors')) {
+                    status.innerHTML = data["errors"].map(error => error["message"]).join(", ")
+                  } else {
+                    status.innerHTML = "Oops! There was a problem submitting your form"
+                  }
+                })
+              }
+            }).catch(error => {
+              status.innerHTML = "Oops! There was a problem submitting your form"
+            });
+          }
+          form.addEventListener("submit", handleSubmit)
+      </script>
+      <!----------------------------------------side bar------------------------------------------------->
+      <aside>
+        <div class="sidebar contact-sidebar">
+          <div class="widget widget-profile">
+            <h3 class="title">About Me</h3>
+      
+            <div class="widget__body">
+              <img
+                src="{{url_for('static', filename='/assets/images/pexels-guilherme-almeida-1858175.jpg')}}"
+                alt="profile photo"
+                class="profile-photo"
+              />
+      
+              <p>
+                Thank you for visiting my blog. My name is Nolusindiso Hleko. I am from South Africa and live in Busan, South Korea. This is where I will be documenting significant moments in my life I want to share with other people. 
+              
+              </p>
+      
+            
+            </div>
+          </div>
+          <div class="widget widget-social">
+            <h3 class="title">Stay in touch</h3>
+      
+            <div class="widget__body">
+              <p class="text">
+                Follow Me
+              </p>
+      
+              <a href="https://www.facebook.com/melanatedbutterfly" class="icon-btn">
+                <i class="ri-facebook-line"></i>
+              </a>
+              <a href="https://www.instagram.com/justnolu/" class="icon-btn">
+                <i class="ri-instagram-line"></i>
+              </a>
+              <a href="https://twitter.com/nolu_hleko" class="icon-btn">
+                <i class="ri-twitter-line"></i>
+              </a>
+            </div>
+          </div>
+         
+          <div class="widget widget-categories">
+            <h3 class="title">categories</h3>
+      
+            <div class="widget__body">
+              <ul class="categories">
+      
+                <!----------------------------add categories in this line-------------------------->
+              </ul>
+            </div>
+      
+      
+      
+      
+      
+      
+          </div>
+          <div class="widget widget-recent-posts">
+            <h3 class="title">recent posts</h3>
+          </div>
+          <div class="widget widget-tags">
+            <h3 class="title">tags</h3>
+      
+            <div class="widget__body">
+              <div class="widget-tags__wrapper">
+                <span class="tag"><a href="#">featured</a></span>
+                <span class="tag"><a href="#">adventure</a></span>
+                <span class="tag"><a href="#">food</a></span>
+                <span class="tag"><a href="#">fashion</a></span>
+                <span class="tag"><a href="#">travel</a></span>
+                <span class="tag"><a href="#">fun</a></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </aside>
+      </div>
+      </main>
+         {% endblock content %}      

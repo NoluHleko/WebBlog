@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login page</title>
+
+<style>
+    body{
+        margin: 0;
+        padding:0;
+        font-family: "Open Sans", sans-serif;
+        background: linear-gradient(135deg, #bac2ab, white);
+        height: 100vh;
+        
+        }
+
+    .center{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 400px;
+        background-color: whitesmoke;
+        border-radius: 20px;
+    }
+    .center h1{
+        text-align: center;
+        padding: 0 0 20px 0;
+    }
+    .center form{
+        padding: 0 40px;
+        box-sizing: border-box;
+    }
+    form .text-field{
+        position: relative;
+        margin: 30px 0;
+    }
+
+    .text-field input{
+        width: 100%;
+        padding: 0 5px;
+        height: 40px;
+        font-size: 16px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+    .text-field label{
+        transform: translate(-50%);
+    }
+
+    .pass{
+        margin: -5px 0 20px 5px;
+        color: black;
+        cursor: pointer;
+    }
+
+    .pass:hover{
+        text-decoration: underline;
+    }
+    input[type="submit"]{
+        width: 100%;
+        height: 50px;
+        border: none;
+        background-color: #bac2ab;
+        font-size: 18px;
+        font-weight: bold;
+        border-radius: 1px;
+        letter-spacing: 1px;
+    }
+
+    input[type="submit"]:hover{
+    background: linear-gradient(135deg, #bac2ab, white);}
+
+.signup_link{
+    margin: 30px 0;
+    text-align: center;
+    font-size: 16px;
+    color: #95a17e;
+}
+.signup_link a{
+    color:rgb(124, 163, 108);
+    text-decoration: none;
+}
+.signup_link a:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+</style>
+</head>
+<body>
+    <div class="center">
+        <h1>login</h1>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          <div class=flashes>
+          {% for category, message in messages %}
+            <div class=" alert alert-{{ category }}">{{ message }}</div>
+          {% endfor %}
+          </div>
+        {% endif %}
+{% endwith %}   
+        <form method="POST">
+            <div class="text-field">
+                <label for="">Username</label>
+                <span></span>
+                <input type="text" name="username" id="username" value="" placeholder="Enter your username" required>
+               
+            </div>
+            <div class="text-field">
+                <label for="">Password</label>
+                <span></span>
+                <input type="password" name="password" id="password" value="" placeholder="Enter your password" required>
+               
+            </div>
+            
+            <input type="submit" name="" value="Login">
+
+            <div class="signup_link"> <a href="/register">
+                register?
+            </a> </div>
+        </form>
+    </div>
+</body>
+</html>

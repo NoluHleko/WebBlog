@@ -1,0 +1,125 @@
+{% extends 'base.html' %}
+{% block title %}
+        About Me
+      {% endblock %}
+
+
+{% block content %}
+
+    <main class="main container">
+  <!----------------------------------------slider area------------------------------------------------->
+      <div class="hero">
+        <div class="swiper-container hero__slider">
+          <ass="swiper-button-prev"></div>
+        </div>
+      </div>
+ <!----------------------------------------blog grids------------------------------------------------->
+      <div class="main-grid">
+        <div>
+       
+            <article class="blog-item">
+              <div class="img-wrapper">
+                <h1 id="me">About Me</h1>
+               <img src="{{url_for('static', filename='/assets/images/About-me.jpg')}}"
+               class="_AboutMe">
+
+
+                <p class="excerpt">
+                  I am Nolusindiso Hleko. I was born in a farm near a little town called Jamestown in South Africa. So, you could say I am from Jamestown, given that my family eventually moved to the town, and I finished my early schooling years there.
+
+In 2010, I moved to Port Elizabeth to study law because I wanted to become a lawyer. After two months I realized that I liked to create more. So, in 2011 I opted to pursue a media degree majoring in Public Relations and went all the way to masters. It was during my first year of masters that I got bitten by the travel bug.
+
+In 2017, I moved to Korea to become an ESL teacher and ended up staying in South Korea for 5 years. It is now 2022, I am a full-time student again, Studying Software Engineering, so either I am confused about life, or I really enjoy studying.
+
+In this Blog I will be documenting my journey of being an undergraduate student at a university in Germany in my 30s while feeling like I live in 3 different countries: Germany, South Africa and South Korea.
+
+                </p>
+                <q id="quote"> Whatever will Be, will be</q>
+              </div>
+            </article>
+            
+
+        
+
+        </div>
+        
+   <!----------------------------------------side bar-------------------------------------------------> 
+   <aside>
+    <div class="sidebar">
+      <div class="widget widget-profile">
+        <h3 class="title">About Me</h3>
+  
+        <div class="widget__body">
+          <img
+            src="{{url_for('static', filename='/assets/images/pexels-guilherme-almeida-1858175.jpg')}}"
+            alt="profile photo"
+            class="profile-photo"
+          />
+  
+          <p>
+            Thank you for visiting my blog. My name is Nolusindiso Hleko. I am from South Africa and live in Busan, South Korea. This is where I will be documenting significant moments in my life I want to share with other people. 
+          
+          </p>
+  
+        
+        </div>
+      </div>
+      <div class="widget widget-social">
+        <h3 class="title">Stay in touch</h3>
+  
+        <div class="widget__body">
+          <p class="text">
+            Follow Me
+          </p>
+  
+          <a href="https://www.facebook.com/melanatedbutterfly" class="icon-btn">
+            <i class="ri-facebook-line"></i>
+          </a>
+          <a href="https://www.instagram.com/justnolu/" class="icon-btn">
+            <i class="ri-instagram-line"></i>
+          </a>
+          <a href="https://twitter.com/nolu_hleko" class="icon-btn">
+            <i class="ri-twitter-line"></i>
+          </a>
+        </div>
+      </div>
+     
+      <div class="widget widget-categories">
+        <h3 class="title">categories</h3>
+  
+        <div class="widget__body">
+          <ul class="categories">
+  
+            <!----------------------------add categories in this line-------------------------->
+          </ul>
+        </div>
+  
+  
+  
+  
+  
+  
+      </div>
+      <div class="widget widget-recent-posts">
+        <h3 class="title">recent posts</h3>
+      </div>
+      <div class="widget widget-tags">
+        <h3 class="title">tags</h3>
+  
+        <div class="widget__body">
+          <div class="widget-tags__wrapper">
+            <span class="tag"><a href="#">featured</a></span>
+            <span class="tag"><a href="#">adventure</a></span>
+            <span class="tag"><a href="#">food</a></span>
+            <span class="tag"><a href="#">fashion</a></span>
+            <span class="tag"><a href="#">travel</a></span>
+            <span class="tag"><a href="#">fun</a></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </aside>
+  </div>
+  </main>  
+ <!----------------------------------------footer area------------------------------------------------->
+ {% endblock content %}

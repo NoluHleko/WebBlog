@@ -1,0 +1,176 @@
+{% extends 'base.html' %}
+{% block title %}
+        Home
+      {% endblock %}
+
+
+{% block content %}
+
+    <main class="main container">
+  <!----------------------------------------slider area------------------------------------------------->
+      <div class="hero">
+        <div class="swiper-container hero__slider">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <article class="slider-item">
+                <img
+                  src="{{url_for('static', filename='/assets/images/slider-2.jpg')}}"
+                  alt="slider item"
+                  class="slider-item__img"
+                />
+                <div class="slider-item__overlay"></div>
+                <div class="slider-item__content">
+                    <h2 class="title">
+                </div>
+              </article>
+            </div>
+            <div class="swiper-slide">
+              <article class="slider-item">
+                <img
+                  src="{{url_for('static', filename='/assets/images/slider-3.jpg')}}"
+                  alt="slider item"
+                  class="slider-item__img"
+                />
+                <div class="slider-item__overlay"></div>
+                <div class="slider-item__content"></div>
+                
+              </article>
+            </div>
+            <div class="swiper-slide">
+              <article class="slider-item">
+                <img
+                  src="{{url_for('static', filename='/assets/images/slider-4.jpg')}}"
+                  alt="slider item"
+                  class="slider-item__img"
+                />
+                <div class="slider-item__overlay"></div>
+                <div class="slider-item__content">
+                </div>
+              </article>
+            </div>
+          </div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+        </div>
+      </div>
+ <!----------------------------------------blog grids------------------------------------------------->
+      <div class="main-grid">
+        <div>
+          <div class="blogs-grid">
+        {% for post in posts%}
+            <article class="blog-item">
+              <div class="image-wrapper">
+                <a href="../../post/{{post.id}}/{{post.slug}}"
+                  ><img
+                    src="{{url_for('static', filename='/assets/images/'+post.image)}}"
+                    alt="blog item"
+                    class="blog-item__image"
+                /></a>
+
+                <span class="tag tag--primary"><a href="#">featured</a></span>
+              </div>
+              <div class="content-wrapper">
+                <ul class="categories">
+                  <li><a href="#">Explore</a></li>
+                  <li><a href="#">Lifestyle</a></li>
+                </ul>
+
+                <h2 class="title">
+                  <a href="../../post/{{post.id}}/{{post.slug}}">{{ post.title }}</a>
+                </h2>
+
+                <div class="meta"><p>by {{ post.author.name }} - {{ post.pub_date.strftime ('%Y %B, %d')}}</p></div>
+
+                <p class="excerpt">
+                  {{ post.body | truncate (100,True) }}
+                </p>
+
+                <div>
+                  <a href="post/{{post.id}}/{{post.slug}}" class="read-more">continue reading...</a>
+                </div>
+              </div>
+            </article>
+        {% endfor %}
+            
+            
+          </div>
+
+        </div>
+ <!----------------------------------------side bar------------------------------------------------->
+ <aside>
+  <div class="sidebar">
+    <div class="widget widget-profile">
+      <h3 class="title">About Me</h3>
+
+      <div class="widget__body">
+        <img
+          src="{{url_for('static', filename='/assets/images/pexels-guilherme-almeida-1858175.jpg')}}"
+          alt="profile photo"
+          class="profile-photo"
+        />
+
+        <p>
+          Thank you for visiting my blog. My name is Nolusindiso Hleko. I am from South Africa and live in Busan, South Korea. This is where I will be documenting significant moments in my life I want to share with other people. 
+        </p>
+
+      
+      </div>
+    </div>
+    <div class="widget widget-social">
+      <h3 class="title">Stay in touch</h3>
+
+      <div class="widget__body">
+        <p class="text">
+          Follow Me
+        </p>
+
+        <a href="https://www.facebook.com/melanatedbutterfly" class="icon-btn">
+          <i class="ri-facebook-line"></i>
+        </a>
+        <a href="https://www.instagram.com/justnolu/" class="icon-btn">
+          <i class="ri-instagram-line"></i>
+        </a>
+        <a href="https://twitter.com/nolu_hleko" class="icon-btn">
+          <i class="ri-twitter-line"></i>
+        </a>
+      </div>
+    </div>
+   
+    <div class="widget widget-categories">
+      <h3 class="title">categories</h3>
+
+      <div class="widget__body">
+        <ul class="categories">
+
+          <!----------------------------add categories in this line-------------------------->
+        </ul>
+      </div>
+
+
+
+
+
+
+    </div>
+    <div class="widget widget-recent-posts">
+      <h3 class="title">recent posts</h3>
+    </div>
+    <div class="widget widget-tags">
+      <h3 class="title">tags</h3>
+
+      <div class="widget__body">
+        <div class="widget-tags__wrapper">
+          <span class="tag"><a href="#">featured</a></span>
+          <span class="tag"><a href="#">adventure</a></span>
+          <span class="tag"><a href="#">food</a></span>
+          <span class="tag"><a href="#">fashion</a></span>
+          <span class="tag"><a href="#">travel</a></span>
+          <span class="tag"><a href="#">fun</a></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</aside>
+</div>
+</main>
+ {% endblock content %}
