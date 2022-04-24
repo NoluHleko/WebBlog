@@ -4,10 +4,7 @@ from .models import User, Post
 from myblog import app,db, bcrypt, login_manager
 
 
-
 auth = Blueprint("auth",__name__)
-
-
 
 #######################################################Register#######################################
 
