@@ -17,7 +17,7 @@ class User(db.Model,UserMixin):
     name = db.Column(db.String(80), unique=False, nullable=False)
     username = db.Column(db.String(80), unique=True, nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
-    password = db.Column(db.LargeBinary(150))
+    password = db.Column(db.String(150))
     def __repr__(self):
         return '<User %r>' % self.username
 

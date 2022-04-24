@@ -8,8 +8,8 @@ from myblog import app,db, bcrypt, login_manager
 auth = Blueprint("auth",__name__)
 
 def verify_password(self, password):
-    enc_pw = password.encode('utf-8')
-    return bcrypt.checkpw(enc_pw, bytes(self.password_hash, 'utf-8'))
+    password= password.encode('utf-8')
+    return bcrypt.checkpw(password, bytes(self.password_hash, 'utf-8'))
 
 #######################################################Register#######################################
 
