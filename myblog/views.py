@@ -1,5 +1,4 @@
 from crypt import methods
-from turtle import title
 import bcrypt
 from flask import Blueprint, Flask, flash, render_template, request, redirect, url_for, current_app
 from myblog import app,db, bcrypt, login_manager, auth
