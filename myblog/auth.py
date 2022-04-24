@@ -16,7 +16,7 @@ def verify_password(self, password):
 @auth.route('/register', methods =['GET', 'POST'] )
 def register():
     if request.method == "POST": #Checks if user and email already exist and flashes a message
-        user=User.query.filter_by(username = request.form.get('username')).first()
+        user=User.query.filter_by(username = request.form.get('username').encode('utf-8')).first()
         if user:
             flash("The username already exists!",'warning')
             return redirect(url_for('auth.register'))
