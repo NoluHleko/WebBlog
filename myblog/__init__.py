@@ -1,6 +1,6 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
-from flask_bcrypt import Bcrypt
+
 from flask_login import LoginManager
 
 
@@ -17,6 +17,7 @@ login_manager = LoginManager(app)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///Weblog2022.db'
 app.config['SECRET_KEY']='NOSI199one'
 db = SQLAlchemy(app)
+from flask_bcrypt import Bcrypt
 bcrypt = Bcrypt(app)
 
 from .models import User, Post

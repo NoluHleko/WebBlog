@@ -1,3 +1,4 @@
+from nis import cat
 from flask import Blueprint, render_template, redirect, url_for, request,flash
 from werkzeug.security import generate_password_hash, check_password_hash
 from .models import User, Post
@@ -10,27 +11,32 @@ auth = Blueprint("auth",__name__)
 
 @auth.route('/register', methods =['GET', 'POST'] )
 def register():
-    if request.method == "POST": #Checks if user and email already exist and flashes a message
-        user=User.query.filter_by(username = request.form.get('username')).first()
-        if user:
-            flash("The username already exists!",'danger')
-            return redirect(url_for('auth.register'))
-        email=User.query.filter_by(email=request.form.get('email')).first()
-        if email:
-            flash("The email is taken!",'danger')
-            return redirect(url_for('auth.register'))
+    if request.method == "POST": 
         name= request.form.get("name")
         username= request.form.get("username")
         email= request.form.get("email")
         password= request.form.get("password")
         repeat_password= request.form.get("repeat_password")
-        if password != repeat_password:
-            flash('passwords do not match','danger')
+
+        user=User.query.filter_by(username = request.form.get('username')).first()
+        if user:
+            flash("The username already exists!",category= 'error')
             return redirect(url_for('auth.register'))
-        password_hash=bcrypt.generate_password_hash(password)
+
+        email=User.query.filter_by(email=request.form.get('email')).first()
+        if email:
+            flash("The email is taken!",category= 'error')
+            return redirect(url_for('auth.register'))
+        
+        if password != repeat_password:
+            flash('passwords do not match',category= 'error')
+            return redirect(url_for('auth.register'))
+
+        password_hash=generate_password_hash(password, method ='sha256')
         users = User(name=name, username=username, email=email, password=password_hash)
         db.session.add(users)
         db.session.commit()
+        login_user(users, remember=True)
         flash('Thank you for registration', 'success')
         return redirect (url_for ("views.dashboard"))
 
