@@ -17,8 +17,8 @@ def register():
             return redirect(url_for('auth.register'))
         email=User.query.filter_by(email=request.form.get('email')).first()
         if email:
-            flash("The email is taken!")
-            return redirect(url_for('auth.register','warning'))
+            flash("The email is taken!",'warning')
+            return redirect(url_for('auth.register'))
         name= request.form.get("name")
         username= request.form.get("username")
         email= request.form.get("email")
