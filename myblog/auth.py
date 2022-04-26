@@ -51,7 +51,7 @@ def login():
     
     if request.method=="POST":
         user=User.query.filter_by(username=request.form.get('username')).first()
-        if user and bcrypt.check_password_hash(user.password, request.form.get('password')):
+        if user and check_password_hash(user.password, request.form.get('password')):
             login_user(user)
             flash('Logged in successfully.', 'success')
             next =request.args.get('next')
