@@ -54,7 +54,28 @@ def dashboard():
     posts= Post.query.order_by(Post.id.desc()).all()
     return render_template('admin/dashboard.html', posts=posts)
 
+@views.route('/users')
+@login_required
+def users():
+    users= User.query.order_by(User.id.desc()).all()
+    return render_template('admin/users.html', users=users)
 
+
+@views.route('/deleteuser/<id>')
+@login_required
+def deleteuser(id):
+    user = User.query.get_or_404(id)
+    try:
+
+        db.session.delete(user)
+        
+    except:
+        db.session.delete(user)
+    db.session.commit()
+    flash ('The post was successfully deleted', 'danger')
+    return redirect (url_for('views.users'))
+
+    
 
 @views.route('/addpost', methods=['POST', 'GET'])
 @login_required
