@@ -66,9 +66,8 @@ def users():
 def deleteuser(id):
     user = User.query.get_or_404(id)
     try:
-
         db.session.delete(user)
-        
+        db.session.delete(user.post)
     except:
         db.session.delete(user)
     db.session.commit()
