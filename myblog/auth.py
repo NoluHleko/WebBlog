@@ -17,17 +17,17 @@ def register():
             return redirect(url_for('auth.register'))
         email=User.query.filter_by(email=request.form.get('email')).first()
         if email:
-            flash("The email is taken!")
-            return redirect(url_for('auth.register','warning'))
+            flash("The email is taken!", category='danger')
+            return redirect(url_for('auth.register'))
         name= request.form.get("name")
         username= request.form.get("username")
         email= request.form.get("email")
         password= request.form.get("password")
         repeat_password= request.form.get("repeat_password")
         if password != repeat_password:
-            flash('passwords do not match','warning')
+            flash('passwords do not match',category='danger')
             return redirect(url_for('auth.register'))
-        password_hash=bcrypt.generate_password_hash(password)
+        password_hash=generate_password_hash(password)
         users = User(name=name, username=username, email=email, password=password_hash)
         db.session.add(users)
         db.session.commit()
@@ -50,7 +50,7 @@ def login():
             flash('Logged in successfully.', 'success')
             next =request.args.get('next')
             return redirect(next or url_for('views.dashboard'))
-        flash('Wrong Password, Please try again', 'danger')
+        flash('Wrong Password, Please try again', category='danger')
     return render_template('admin/login.html')
 
 
