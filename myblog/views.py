@@ -60,6 +60,9 @@ def users():
     users= User.query.order_by(User.id.desc()).all()
     return render_template('admin/users.html', users=users)
 
+from psycopg2.errorcodes import NOT_NULL_VIOLATION
+from psycopg2 import errors
+
 
 @views.route('/deleteuser/<id>')
 @login_required
@@ -67,9 +70,9 @@ def deleteuser(id):
     user = User.query.get_or_404(id)
     try:
         db.session.delete(user)
-        db.session.delete(user.post)
-    except:
-        db.session.delete(user)
+    except errors.lookup(NOT_NULL_VIOLATION) as e:
+        db.session.rollback()
+        return "This user cannot be deleted"
     db.session.commit()
     flash ('The post was successfully deleted', 'danger')
     return redirect (url_for('views.users'))
