@@ -82,7 +82,7 @@
                 <div class="meta"><p>by {{ post.author.name }} - {{ post.pub_date.strftime ('%Y %B, %d')}}</p></div>
 
                 <p class="excerpt">
-                  {{ post.body | truncate (100,True) }}
+                  {{ post.body | truncate (100,True) }} <!---------This shortens the amount of words displayed--------->
                 </p>
 
                 <div>

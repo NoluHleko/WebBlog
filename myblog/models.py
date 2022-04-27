@@ -11,7 +11,7 @@ def load_user(user_id):
     return User.query.get(int(user_id))
 
 
-
+#User model
 class User(db.Model,UserMixin):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     name = db.Column(db.String(80), unique=False, nullable=False)
@@ -21,13 +21,13 @@ class User(db.Model,UserMixin):
     def __repr__(self):
         return '<User %r>' % self.username
 
-
+#Post model
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     slug = db.Column(db.String(180), nullable=False)
     title = db.Column(db.String(180), nullable=False)
     body = db.Column(db.Text, nullable=False)
-    comments = db.Column(db.Integer, default=0)
+    comments = db.Column(db.Integer, default=0) #decided against inserting comments on the blog
     views = db.Column(db.Integer, default=0)
     image=db.Column(db.String(120), default='image.jpg')
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
@@ -40,7 +40,7 @@ class Post(db.Model):
 #######################################################URL Slug###############################
 
     @staticmethod
-    def generate_slug(target, value, oldvalue, initiator):
+    def generate_slug(target, value, oldvalue, initiator): #generates slug for the URL
         if value and (not target.slug or value != oldvalue):
             target.slug = slugify (value)
 

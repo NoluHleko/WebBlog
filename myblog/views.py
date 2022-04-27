@@ -13,7 +13,7 @@ views = Blueprint("views",__name__)
 
 APP_ROOT = os.path.dirname(os.path.abspath(__file__))
 
-
+#Saving images in the static folder
 def save_images(photo):
     hash_photo = secrets.token_urlsafe(10)
     _, file_extention = os.path.splitext(photo.filename)
@@ -23,22 +23,20 @@ def save_images(photo):
     return photo_name
 
 
-
+ #home page view
 @views.route('/')
 @views.route('/home')
 def home():
     posts = Post.query.order_by(Post.id.desc()).all()
     return render_template('index.html', posts=posts)
 
-
-
+#single post page
 @views.route ('/post/<int:post_id>/<string:slug>', methods=['POST', 'GET'])
 def post(post_id, slug):
     post = Post.query.get_or_404 (post_id)
     return render_template('Post.html', post=post)
 
-
-
+#about me page
 @views.route('/aboutme')
 def aboutme():
     return render_template('About-Me.html')
@@ -47,6 +45,7 @@ def aboutme():
 
 from flask_login import login_required, current_user
 
+#Admin dashboard page
 
 @views.route('/dashboard')
 @login_required
@@ -60,6 +59,8 @@ def users():
     users= User.query.order_by(User.id.desc()).all()
     return render_template('admin/users.html', users=users)
 
+#delete user
+
 from psycopg2.errorcodes import NOT_NULL_VIOLATION
 from psycopg2 import errors
 
@@ -70,14 +71,15 @@ def deleteuser(id):
     user = User.query.get_or_404(id)
     try:
         db.session.delete(user)
-    except errors.lookup(NOT_NULL_VIOLATION) as e:
+    except errors.lookup(NOT_NULL_VIOLATION): #This doesn't seem to work at the moment
         db.session.rollback()
         return "This user cannot be deleted"
     db.session.commit()
     flash ('The post was successfully deleted', 'danger')
     return redirect (url_for('views.users'))
 
-    
+
+#adding a new blog post 
 
 @views.route('/addpost', methods=['POST', 'GET'])
 @login_required
@@ -94,6 +96,7 @@ def addpost():
     return render_template ('admin/addpost.html')
 
 
+#update a post
 
 @views.route ('/updatepost/<id>', methods=["POST", "GET"])
 @login_required
@@ -114,7 +117,7 @@ def updatepost(id):
     return render_template('admin/updatepost.html', post=post)
 
 
-
+#delete a post
 @views.route('/delete/<id>')
 @login_required
 def delete(id):
@@ -128,7 +131,7 @@ def delete(id):
     flash ('Post deleted succesfully', 'success')
     return redirect (url_for('views.dashboard'))
 
-
+#contactme page view
 
 @views.route('/contactme', methods=['GET', 'POST'])
 def contactme():
@@ -137,8 +140,7 @@ def contactme():
          return redirect (url_for('views.contactme'))
     return render_template ("contactMe.html")
 
-
-
+#travel view page/ This page is not dynamic
 
 @views.route('/travel')
 def travel():
