@@ -75,7 +75,7 @@ def deleteuser(id):
         db.session.rollback()
         return "This user cannot be deleted"
     db.session.commit()
-    flash ('The post was successfully deleted', 'danger')
+    flash ('The user was deleted successfully', 'success')
     return redirect (url_for('views.users'))
 
 
