@@ -50,8 +50,8 @@ def login():
             flash('Logged in successfully.', 'success')
             next =request.args.get('next')
             return redirect(next or url_for('views.dashboard'))
-        error= 'Wrong Password, Please try again'
-    return render_template('admin/login.html', error= error)
+        error = 'Wrong Password, Please try again'
+    return render_template('admin/login.html', user=user,error=error)
 
 
 @auth.route('/logout')
