@@ -13,8 +13,8 @@ def register():
     if request.method == "POST": #Checks if user and email already exist and flashes a message
         user=User.query.filter_by(username = request.form.get('username')).first()
         if user:
-            flash("The username already exists!",category='error')
-            return redirect(url_for('auth.register'))
+            error ="The username already exists!"
+            return redirect(url_for('auth.register', error=error))
         email=User.query.filter_by(email=request.form.get('email')).first()
         if email:
             flash("The email is taken!", category='error')
@@ -25,8 +25,8 @@ def register():
         password= request.form.get("password")
         repeat_password= request.form.get("repeat_password")
         if password != repeat_password:
-            flash('passwords do not match',category='error')
-            return redirect(url_for('auth.register'))
+            error='passwords do not match'
+            return redirect(url_for('auth.register',error=error))
         password_hash=generate_password_hash(password)
         users = User(name=name, username=username, email=email, password=password_hash)
         db.session.add(users)
@@ -50,8 +50,8 @@ def login():
             flash('Logged in successfully.', 'success')
             next =request.args.get('next')
             return redirect(next or url_for('views.dashboard'))
-        flash('Wrong Password, Please try again', 'danger')
-    return render_template('admin/login.html')
+        error= 'Wrong Password, Please try again'
+    return render_template('admin/login.html', error= error)
 
 
 @auth.route('/logout')
