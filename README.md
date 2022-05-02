@@ -1,7 +1,7 @@
-# Project Name
+# Nolusindiso's Blog 
 
 
-# Live Demon
+## Live Demon
 > Live demo [_here_](http://nolusindiso.herokuapp.com/)
 
 ## About This Application
@@ -19,10 +19,10 @@ The blog has four pages and a dashboard for administrative purposes. Users can r
 
 
 ### Admin pages
-> - [Dashboard](http://nolusindiso.herokuapp.com/dashboard) to **C**reate, **U**pdate and **D**elete posts
-> - [Users](http://nolusindiso.herokuapp.com/users)
-> - Registration, log in and log out authentication.
-> - The blog homepage is also accessible with a link on the dashboard.
+- [Dashboard](http://nolusindiso.herokuapp.com/dashboard) to **C**reate, **U**pdate and **D**elete posts
+- [Users](http://nolusindiso.herokuapp.com/users)
+- Registration, log in and log out authentication.
+- The blog homepage is also accessible with a link on the dashboard.
 
 
 
